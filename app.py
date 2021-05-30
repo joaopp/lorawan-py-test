@@ -7,7 +7,7 @@ def hello():
 
 @app.route('/getdata', methods=['GET'])
 def getdata():
-    print (request.form)
+    print (request.form['data'])
     return 'Hello World'
 
 if __name__ == '__main__':
