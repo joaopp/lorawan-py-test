@@ -8,8 +8,7 @@ def hello():
 
 @app.route('/getdata', methods=['GET'])
 def getdata():
-    print (request.form)
-    return 'Hello World'
+    return request.form + 'Hello World'
 
 if __name__ == '__main__':
     app.run()
