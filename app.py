@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    file = open("test",'w+')
+    #file = open("test",'w+')
     return 'Hello World - TEST\n'
 
 @app.route('/getdata', methods=['GET','POST'])
