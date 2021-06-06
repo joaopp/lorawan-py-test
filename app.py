@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import request
 import requests
+import json
 
 app = Flask(__name__)
 
@@ -25,6 +26,21 @@ def view():
     file = open("test")
     return file.read()
 
+@app.route('/view2')
+def view2():
+    str_tr = ""
+    text = open('test')
+    text1 = text.read()
+    index = 0
+    while index < len(text1):
+        index = text1.find("'metadata': {'time': '", index)
+        if index == -1:
+            break
+        str_tr = str_tr + text1[index+22:index+22+19] + "\r\n<br>"
+        index += 22 # +2 because len('ll') == 2
+    return str_tr
+
+
 if __name__ == '__main__':
-    app.run()
-    #app.run(debug=True, host='0.0.0.0') #local test
+    #app.run()
+    app.run(debug=True, host='0.0.0.0') #local test
